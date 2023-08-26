@@ -1,0 +1,64 @@
+# *******Skillrack_Dialy_Challenge_9*******
+
+#Program to divided equally
+
+#Question:
+
+Divide Equally 
+The program must accept four positive integers as the input. The program must divide the four integers into two parts and print YES if the sum of integers in the first part is equal to the sum of integers in the second part. Else the program must print NO as the output. 
+
+Boundary Condition(s): 1 <= Each integer value <= 10^8 
+Input Format: The first line contains four positive integers separated by a space.
+Output Format: The first line contains YES or NO. 
+
+Example Input/Output 1: 
+
+Input: 
+
+1 7 11 5 
+
+Output:
+
+YES
+
+Example Input/Output 2: 
+
+Input: 7 3 2 5 
+
+Output: 
+
+NO
+
+#Answer:
+
+def choice(arr, n):
+
+    total = 1 << n
+
+    for m in range(1, total):
+
+        sum1 = sum2 = 0
+
+        for i in range(n):
+
+            if m & (1 << i):
+
+                sum1 += arr[i]
+
+            else:
+
+                sum2 += arr[i]
+
+        if sum1 == sum2:
+
+            return True
+
+    return False
+
+arr = list(map(int, input().split()))  # Corrected input() and split() placement
+
+flag = choice(arr, len(arr))
+
+print("YES" if flag else "NO")
+
+#Skillrack_Dialy_Challenge_9
